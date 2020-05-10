@@ -1,0 +1,12 @@
+#HW04_SQL code
+
+SELECT
+s.z, s.zErr, p.petroMag_g, p.petroMagErr_g, p.ra, p.dec, s.bestObjID
+FROM photoObj p
+JOIN specObj s ON s.bestObjID = p.objID
+WHERE s.class = 'qso' 
+  and s.z between 0.3 
+  and 0.4 
+  and s.zWarning = 0 
+  and s.zErr <= 0.01 
+  and p.petroMagErr_g <= 0.99
